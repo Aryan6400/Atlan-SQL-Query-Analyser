@@ -38,17 +38,11 @@ const Editor=()=>{
         const storedHistory=localStorage.getItem("history");
         const parsedHistory=JSON.parse(storedHistory);
         const currentDate = new Date().toISOString().split("T")[0];
-        if(parsedHistory){
-            const filteredHistory=parsedHistory.filter((obj)=>{
-                return obj.timestamp==currentDate;
-            })
-            setHistory([data,...filteredHistory]);
-            localStorage.setItem("history",JSON.stringify([data,...filteredHistory]));
-        }
-        else{
-            setHistory([data]);
-            localStorage.setItem("history",JSON.stringify([data]));
-        }
+        const filteredHistory=parsedHistory.filter((obj)=>{
+            return obj.timestamp==currentDate;
+        })
+        setHistory([data,...filteredHistory]);
+        localStorage.setItem("history",JSON.stringify([data,...filteredHistory]));
         
         // Resetting the table state to generate a random table.
         setTable(prev=>{
