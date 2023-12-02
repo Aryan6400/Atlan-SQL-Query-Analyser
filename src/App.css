@@ -6,7 +6,6 @@
   max-height: 100vh;
   padding-bottom: 10px;
 }
-
 .header{
   height: 50px;
   background-color: rgb(225,225,225);
@@ -16,37 +15,29 @@
   justify-content: space-between;
   align-items: center;
 }
-
 .header-dark{
   background-color: #202228;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
 }
-
 .App-dark{
   background-color: #2a2c31;
 }
-
 .dark-font{
   color: #E1E1E1;
 }
-
 .header span{
   font-size: 32px;
 }
-
 .header svg{
   font-size: 1.3rem;
 }
-
 .theme-toggle-light{
   color: #E1E1E1;
 }
-
 .left-panel{
   transform: translateX(0);
   width: 250px;
 }
-
 .central-panel{
   flex: 1;
   padding-left: 15px;
@@ -56,18 +47,15 @@
   gap: 10px;
   overflow: auto;
 }
-
 .right-panel{
   width: 360px;
   display: block;
   min-height: calc(100vh - 50px);
   overflow: auto;
 }
-
 .right-panel::-webkit-scrollbar {
   width: 0.1px;
 }
-
 .right-panel::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
