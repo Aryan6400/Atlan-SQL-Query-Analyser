@@ -9,7 +9,7 @@ import BubbleChart from './GraphComponents/BubbleChart';
 
 
 const ImagePopup = () => {
-    const {popup, setPopup, chartValue, setChartValue} = usePopup();
+    const {popup, setPopup, chartValue} = usePopup();
 
     const closeModal = () => {
         setPopup(false);

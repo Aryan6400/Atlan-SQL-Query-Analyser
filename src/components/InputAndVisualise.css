@@ -5,3 +5,29 @@
 .visualise-box button{
     margin-top: 15px;
 }
+
+.form-dark2{
+    background-color: #1D1F25;
+}
+
+.form-dark2 label{
+    color: #E1E1E1;
+}
+
+.input-dark input{
+    color: #E1E1E1 !important;
+}
+
+.input-dark label{
+    color: #E1E1E1 !important;
+}
+
+.MuiTextField-root .MuiOutlinedInput-notchedOutline {
+    border-color: #E1E1E1;
+}
+
+.MuiTextField-root:hover{
+    border-color: #E1E1E1;
+}
+
+  

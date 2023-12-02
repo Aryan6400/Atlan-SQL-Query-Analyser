@@ -5,30 +5,34 @@ import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrow
 import "./HistoryCard.css";
 import { useTable } from '../context/TableContext';
 import { useHistory } from '../context/HistoryContext';
+import { useTheme } from '../context/ThemeContext';
 
 const HistoryCard = ({ title, text, timestamp }) => {
     const {setTable} = useTable();
     const {setTransfer} = useHistory();
+    const {theme} = useTheme();
 
     const runHistory=()=>{
+        // Generating a random table when history code is executed.
         setTable(prev=>{
             return (1-prev);
         })
     }
 
     const transferHistory=()=>{
+        // History code is transferred to the code editor using context and global states.
         setTransfer(text);
     }
 
     return (
         <>
-            <Box className="history-box">
+            <Box className={`history-box ${theme=="Dark"?"box-dark":null}`}>
                 <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: 1 }}>
                     <Typography className='history-box-title' variant="h6" sx={{ flexGrow: 1 }}>{title}</Typography>
                 </Box>
                 <div>
                     <IconButton className='history-box-icon' onClick={transferHistory}>
-                        <KeyboardDoubleArrowLeftIcon />
+                        <KeyboardDoubleArrowLeftIcon className={`${theme=="Dark"?"btn-dark":null}`} />
                     </IconButton>
                     <IconButton className='history-box-icon' onClick={runHistory}>
                         <PlayArrowIcon className='history-run' />

@@ -10,6 +10,11 @@
     background-color: rgb(225, 225, 225);
 }
 
+.box-dark{
+    background-color: #1C1D23;
+    color: #E1E1E1;
+}
+
 .history-code{
     font-size: 0.85rem !important;
 }
@@ -44,6 +49,10 @@
 
 .history-run{
     color: #499C54;
+}
+
+.btn-dark{
+    color: #E1E1E1;
 }
 
 ::-webkit-scrollbar {

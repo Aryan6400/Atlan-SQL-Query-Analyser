@@ -1,16 +1,21 @@
-import { Button, FormControl, InputLabel, MenuItem, Select, Typography } from "@mui/material";
+import { Button, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PublishIcon from '@mui/icons-material/Publish';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { useEffect, useState } from "react";
 import "./Editor.css";
 import { useHistory } from "../context/HistoryContext";
 import { useTable } from "../context/TableContext";
+import { useTheme } from "../context/ThemeContext";
 
 const Editor=()=>{
     const [code, setCode] = useState('');
-    const {history,setHistory,transfer} = useHistory();
+    const {setHistory,transfer} = useHistory();
+    const {theme} = useTheme();
     const [query,setQuery] = useState("");
     const {setTable} = useTable();
 
+    // Adding the code from history card to the editor using context and global states.
     useEffect(()=>{
         if(transfer!="") setCode(transfer);
     },[transfer])
@@ -21,13 +26,26 @@ const Editor=()=>{
         const day = date.getDate().toString().padStart(2, '0');
         const month = (date.getMonth() + 1).toString().padStart(2, '0');
         const year = date.getFullYear();
-        return `${day}/${month}/${year}`;
+        return `${year}-${month}-${day}`;
     }
 
     const runQuery=(event)=>{
-        const timestamp=getTimestamp();
+        if(code=="") return;
+        const timestamp=getTimestamp();     //Getting a custom date string
         const data={title:"SQL", code:code, timestamp:timestamp};
-        setHistory([data,...history]);
+        
+        // Deleting the history of previous day. Can be changed to 24 hrs or 48 hrs as per need.
+        const storedHistory=localStorage.getItem("history");
+        const parsedHistory=JSON.parse(storedHistory);
+        const currentDate = new Date().toISOString().split("T")[0];
+        const filteredHistory=parsedHistory.filter((obj)=>{
+            return obj.timestamp==currentDate;
+        })
+
+        setHistory([data,...filteredHistory]);
+        localStorage.setItem("history",JSON.stringify([data,...filteredHistory]));
+        
+        // Resetting the table state to generate a random table.
         setTable(prev=>{
             return (1-prev);
         })
@@ -36,10 +54,12 @@ const Editor=()=>{
     const runSelectedQuery=(e)=>{
         const selection=e.target.value;
         setQuery(e.target.value);
-        if(selection=="read") setCode("Read the column names from the table");
-        if(selection=="delete") setCode("Delete elements from the table");
-        if(selection=="create") setCode("Create the table");
-        if(selection=="update") setCode("Update the elements of the table");
+
+        // Using dummy sql codes for the dropdown select
+        if(selection=="read") setCode("SELECT orders.order_number, product.name, product.price, product.stock\nFROM orders\nINNER JOIN product\nON orders.product_id = product.id;");
+        if(selection=="delete") setCode("DELETE FROM employees\nWHERE department = 'HR'\nAND status = 'inactive';");
+        if(selection=="create") setCode("CREATE TABLE employees (\nemployee_id INT PRIMARY KEY,\nfirst_name VARCHAR(50),\nlast_name VARCHAR(50),\ndepartment VARCHAR(50),\nstatus VARCHAR(20)\n);");
+        if(selection=="update") setCode("UPDATE employees\nSET status = 'inactive'\nWHERE employee_id = 2;");
     }
 
     const handleChange = (e) => {
@@ -49,28 +69,34 @@ const Editor=()=>{
     return (
         <div className="editor-comp">
             <div className="edit-tab">
-                <Typography className="edit-tab-title" variant="h6">
-                    {/* SQL Code Editor */}
-                </Typography>
-                <FormControl className="query-selection" margin="normal">
+                <FormControl variant="filled" className={`query-selection ${theme=="Dark" ? "form-dark" :null}`} margin="normal">
                     <InputLabel>Select Query</InputLabel>
-                    <Select value={query} onChange={runSelectedQuery}>
+                    <Select className={`${theme=="Dark" ? "select-dark" :null}`} value={query} onChange={runSelectedQuery}>
                         <MenuItem value="read">Read</MenuItem>
                         <MenuItem value="delete">Delete</MenuItem>
                         <MenuItem value="create">Create</MenuItem>
                         <MenuItem value="update">Update</MenuItem>
                     </Select>
                 </FormControl>
-                <Button onClick={runQuery}>
-                    <PlayArrowIcon/> <span>Run</span>
-                </Button>
+                <div>
+                    <Button>
+                        <FileDownloadIcon/> <span>Import</span>
+                    </Button>
+                    <Button>
+                        <PublishIcon/> <span>Export</span>
+                    </Button>
+                    <Button className="run-btn" onClick={runQuery}>
+                        <PlayArrowIcon/> <span>Run</span>
+                    </Button>
+                </div>
             </div>
             <div className="edit-box">
-            <textarea
-                value={code}
-                onChange={handleChange}
-                placeholder="Type your code here..."
-            />
+                <textarea
+                    value={code}
+                    className={`${theme=="Dark"?"edit-area-dark":null}`}
+                    onChange={handleChange}
+                    placeholder="Type your code here..."
+                />
             </div>
         </div>
     )
