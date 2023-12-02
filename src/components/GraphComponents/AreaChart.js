@@ -12,7 +12,6 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import {faker} from '@faker-js/faker';
-
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -23,7 +22,6 @@ ChartJS.register(
     Filler,
     Legend
 );
-
 export const options = {
     responsive: true,
     plugins: {
@@ -36,9 +34,7 @@ export const options = {
         },
     },
 };
-
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
 export const data = {
     labels,
     datasets: [
@@ -51,7 +47,6 @@ export const data = {
         },
     ],
 };
-
 export default function AreaChart() {
     return <Line options={options} data={data} />;
 }
