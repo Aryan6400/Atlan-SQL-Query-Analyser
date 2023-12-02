@@ -13,7 +13,6 @@ const InputAndVisualise = () => {
   const {setPopup, setChartValue} = usePopup();
   const [open, setOpen] = useState(false);
   const {theme} = useTheme();
-
   const handleVisualizeClick = () => {
     // Form validation by giving alert on not filling all the input fields.
     if(graphType=='' || columnNumber=='' || startRow=='' || endRow==''){
@@ -24,7 +23,6 @@ const InputAndVisualise = () => {
     setChartValue(graphType);
     setPopup(true);
   };
-
   const handleClose = (event) => {
     setOpen(false);
   };
@@ -40,7 +38,6 @@ const InputAndVisualise = () => {
           <MenuItem value="Bubble">Bubble Graph</MenuItem>
         </Select>
       </FormControl>
-
       <TextField
         className={`${theme=="Dark" ? "input-dark" :null}`}
         required={true}
@@ -51,7 +48,6 @@ const InputAndVisualise = () => {
         value={columnNumber}
         onChange={(e) => setColumnNumber(e.target.value)}
       />
-
       <TextField
         className={`${theme=="Dark" ? "input-dark" :null}`}
         required={true}
@@ -62,7 +58,6 @@ const InputAndVisualise = () => {
         value={startRow}
         onChange={(e) => setStartRow(e.target.value)}
       />
-
       <TextField
         className={`${theme=="Dark" ? "input-dark" :null}`}
         required={true}
@@ -73,7 +68,6 @@ const InputAndVisualise = () => {
         value={endRow}
         onChange={(e) => setEndRow(e.target.value)}
       />
-
       <Button title='Visualize' variant="contained" color="primary" onClick={handleVisualizeClick}>
         Visualize
       </Button>
@@ -81,5 +75,4 @@ const InputAndVisualise = () => {
     </Box>
   );
 };
-
 export default InputAndVisualise;
