@@ -1,7 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import "./HistoryHeader.css";
 import { useTheme } from '../context/ThemeContext';
-
 const HistoryHeader = () => {
     const {theme}=useTheme();
     return (
@@ -12,5 +11,4 @@ const HistoryHeader = () => {
         </>
     );
 };
-
 export default HistoryHeader;
