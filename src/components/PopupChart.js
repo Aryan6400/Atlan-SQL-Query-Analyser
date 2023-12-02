@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import Draggable from 'react-draggable';
 import LineChart from './GraphComponents/LineChart';
 import { usePopup } from '../context/PopupContext';
 import AreaChart from './GraphComponents/AreaChart';
