@@ -38,5 +38,7 @@ Best Practices: 100/100
 
 **Optimisations:**
 
-Performance can be optimised by implementing lazy loading.
+Improved performance and load time by implementing lazy loading on the tables and graphs components.
+New metrics:
+
 
