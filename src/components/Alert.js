@@ -3,7 +3,6 @@ import Alert from '@mui/material/Alert';
 import "./Alert.css";
 
 function ErrorAlert(props){
-
     return(
         <Snackbar
             id='alert'
@@ -17,5 +16,4 @@ function ErrorAlert(props){
         </Snackbar>
     )
 }
-
 export default ErrorAlert;
