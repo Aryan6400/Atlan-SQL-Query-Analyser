@@ -3,14 +3,16 @@ import './App.css';
 import HistoryHeader from './components/HistoryHeader';
 import InputAndVisualise from './components/InputAndVisualise';
 import Editor from './components/Editor';
-import Output from './components/Output';
 import { useHistory } from './context/HistoryContext';
-import ImagePopup from './components/PopupChart';
 import { useTheme } from './context/ThemeContext';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import { IconButton } from '@mui/material';
+import { Suspense, lazy } from 'react';
 
+// Implementing lazy loading for tables and graphs to increase performance
+const Output = lazy(()=> import("./components/Output"));
+const ImagePopup = lazy(()=> import("./components/PopupChart"));
 
 function App() {
   const {history} = useHistory();
@@ -35,11 +37,11 @@ function App() {
       <div className={`App ${theme=="Dark"?"App-dark":null}`}>
         <div className={`left-panel ${theme=="Dark"?"App-dark":null}`}>
           <InputAndVisualise />
-          <ImagePopup />
+          <Suspense fallback={<p>Loading...</p>}><ImagePopup /></Suspense>
         </div>
         <div className={`central-panel ${theme=="Dark"?"App-dark":null}`}>
           <Editor/>
-          <Output/>
+          <Suspense fallback={<p>Loading...</p>}><Output/></Suspense>
         </div>
         <div className={`right-panel ${theme=="Dark"?"App-dark":null}`}>
           <HistoryHeader />
