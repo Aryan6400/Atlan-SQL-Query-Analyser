@@ -6,14 +6,12 @@ import AreaChart from './GraphComponents/AreaChart';
 import BarChart from './GraphComponents/BarChart';
 import BubbleChart from './GraphComponents/BubbleChart';
 
-
 const ImagePopup = () => {
     const {popup, setPopup, chartValue} = usePopup();
-
     const closeModal = () => {
         setPopup(false);
     };
-
+    
     return (
         <div>
             <Modal
@@ -41,5 +39,4 @@ const ImagePopup = () => {
         </div>
     );
 };
-
 export default ImagePopup;
