@@ -11,14 +11,12 @@ const HistoryCard = ({ title, text, timestamp }) => {
     const {setTable} = useTable();
     const {setTransfer} = useHistory();
     const {theme} = useTheme();
-
     const runHistory=()=>{
         // Generating a random table when history code is executed.
         setTable(prev=>{
             return (1-prev);
         })
     }
-
     const transferHistory=()=>{
         // History code is transferred to the code editor using context and global states.
         setTransfer(text);
@@ -38,7 +36,6 @@ const HistoryCard = ({ title, text, timestamp }) => {
                         <PlayArrowIcon className='history-run' />
                     </IconButton>
                 </div>
-
                 <div className='history-code-box'>
                     <Typography variant="body1" className='history-code'>
                         {text.length > 75 ? text.slice(0, 75)+"..." : text}
@@ -50,5 +47,4 @@ const HistoryCard = ({ title, text, timestamp }) => {
         </>
     );
 };
-
 export default HistoryCard;
