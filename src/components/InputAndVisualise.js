@@ -31,7 +31,7 @@ const InputAndVisualise = () => {
 
   return (
     <Box className={`visualise-box ${theme=="Dark" ? "dark-box" :null}`} p={3}>
-      <FormControl className={`${theme=="Dark" ? "form-dark2" :null}`} required="true" variant="filled" fullWidth margin="normal">
+      <FormControl className={`${theme=="Dark" ? "form-dark2" :null}`} required={true} variant="filled" fullWidth margin="normal">
         <InputLabel>Graph Type</InputLabel>
         <Select className={`${theme=="Dark" ? "select-dark":null}`} value={graphType} onChange={(e) => setGraphType(e.target.value)}>
           <MenuItem value="Bar">Bar Graph</MenuItem>
@@ -43,7 +43,7 @@ const InputAndVisualise = () => {
 
       <TextField
         className={`${theme=="Dark" ? "input-dark" :null}`}
-        required="true"
+        required={true}
         fullWidth
         margin="normal"
         label="Column Number"
@@ -54,7 +54,7 @@ const InputAndVisualise = () => {
 
       <TextField
         className={`${theme=="Dark" ? "input-dark" :null}`}
-        required="true"
+        required={true}
         fullWidth
         margin="normal"
         label="Start Row"
@@ -65,7 +65,7 @@ const InputAndVisualise = () => {
 
       <TextField
         className={`${theme=="Dark" ? "input-dark" :null}`}
-        required="true"
+        required={true}
         fullWidth
         margin="normal"
         label="End Row"

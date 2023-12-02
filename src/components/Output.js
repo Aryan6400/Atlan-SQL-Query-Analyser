@@ -16,13 +16,11 @@ const Output = () => {
             // Accessing a random ccsv file and extracting the data using "Papaparse".
             let num=Math.floor(Math.random()*6)+1;
             const csvFilePath = process.env.PUBLIC_URL+"/table"+num+".csv";
-            console.log(csvFilePath);
             fetch(csvFilePath)
             .then((response) => response.text())
             .then((csvData) => {
                 Papa.parse(csvData, {
                     complete: (result) => {
-                        console.log(result.data);
                         setTableData(result.data);
                     },
                     header: true,

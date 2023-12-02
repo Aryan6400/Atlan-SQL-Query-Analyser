@@ -41,7 +41,6 @@ const Editor=()=>{
         const filteredHistory=parsedHistory.filter((obj)=>{
             return obj.timestamp==currentDate;
         })
-
         setHistory([data,...filteredHistory]);
         localStorage.setItem("history",JSON.stringify([data,...filteredHistory]));
         
