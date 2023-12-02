@@ -27,13 +27,19 @@ react-modal: For generating graph modals
 **Page Load Time:**
 
 According to Google Lighthouse:
+
 Performance: 96/100
+
 Accessibility: 93/100
+
 Best Practices: 100/100
 
 According to PageSpeed Insights:
+
 Performance: 75/100
+
 Accessibility: 96/100
+
 Best Practices: 100/100
 
 **Optimisations:**
@@ -41,4 +47,11 @@ Best Practices: 100/100
 Improved performance and load time by implementing lazy loading on the tables and graphs components.
 New metrics:
 
+According to Google Lighthouse:
+
+new Performance: 98/100
+
+According to PageSpeed Insights:
+
+new Performance: 81/100
 
