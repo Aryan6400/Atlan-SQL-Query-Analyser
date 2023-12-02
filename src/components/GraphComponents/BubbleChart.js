@@ -8,9 +8,7 @@ import {
 } from 'chart.js';
 import { Bubble } from 'react-chartjs-2';
 import {faker} from '@faker-js/faker';
-
 ChartJS.register(LinearScale, PointElement, Tooltip, Legend);
-
 export const options = {
     scales: {
         y: {
@@ -18,7 +16,6 @@ export const options = {
         },
     },
 };
-
 export const data = {
     datasets: [
         {
@@ -41,7 +38,6 @@ export const data = {
         },
     ],
 };
-
 export default function BubbleChart() {
     return <Bubble options={options} data={data} />;
 }
