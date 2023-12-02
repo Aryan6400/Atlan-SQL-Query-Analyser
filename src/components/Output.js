@@ -9,7 +9,6 @@ const Output = () => {
     const [isMounted, setIsMounted] = useState(false);
     const {table} = useTable();
     const {theme} = useTheme();
-
     useEffect(() => {
         // Only generating the table when query is executed and not on loading.
         if(isMounted){
@@ -60,5 +59,4 @@ const Output = () => {
         </div>
     );
 };
-
 export default Output;
