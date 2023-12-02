@@ -19,7 +19,7 @@ const Editor=()=>{
     useEffect(()=>{
         if(transfer!="") setCode(transfer);
     },[transfer])
-
+    
     function getTimestamp() {
         const timestamp = Date.now();
         const date = new Date(timestamp);
@@ -28,7 +28,6 @@ const Editor=()=>{
         const year = date.getFullYear();
         return `${year}-${month}-${day}`;
     }
-
     const runQuery=(event)=>{
         if(code=="") return;
         const timestamp=getTimestamp();     //Getting a custom date string
@@ -49,7 +48,6 @@ const Editor=()=>{
             return (1-prev);
         })
     }
-
     const runSelectedQuery=(e)=>{
         const selection=e.target.value;
         setQuery(e.target.value);
@@ -60,7 +58,6 @@ const Editor=()=>{
         if(selection=="create") setCode("CREATE TABLE employees (\nemployee_id INT PRIMARY KEY,\nfirst_name VARCHAR(50),\nlast_name VARCHAR(50),\ndepartment VARCHAR(50),\nstatus VARCHAR(20)\n);");
         if(selection=="update") setCode("UPDATE employees\nSET status = 'inactive'\nWHERE employee_id = 2;");
     }
-
     const handleChange = (e) => {
         setCode(e.target.value);
     };
@@ -100,5 +97,4 @@ const Editor=()=>{
         </div>
     )
 }
-
 export default Editor;
