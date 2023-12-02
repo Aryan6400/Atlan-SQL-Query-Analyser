@@ -22,11 +22,11 @@ function App() {
       <header className={`header ${theme=="Dark"?"header-dark":null}`}>
         <span className={theme=="Dark"?"dark-font":null}>SQL query analyzer</span>
         {theme=="Dark" ? 
-          <IconButton onClick={()=>setTheme("Light")}>
+          <IconButton title='Dark Mode' onClick={()=>setTheme("Light")}>
             <LightModeIcon className='theme-toggle-light' />
           </IconButton>
           :
-          <IconButton onClick={()=>setTheme("Dark")}>
+          <IconButton title='Light Mode' onClick={()=>setTheme("Dark")}>
             <DarkModeIcon className='theme-toggle-dark' />
           </IconButton>
         }

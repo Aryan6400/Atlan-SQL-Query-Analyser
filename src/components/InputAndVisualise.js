@@ -74,7 +74,7 @@ const InputAndVisualise = () => {
         onChange={(e) => setEndRow(e.target.value)}
       />
 
-      <Button variant="contained" color="primary" onClick={handleVisualizeClick}>
+      <Button title='Visualize' variant="contained" color="primary" onClick={handleVisualizeClick}>
         Visualize
       </Button>
       <ErrorAlert open={open} handleClose={handleClose}/>

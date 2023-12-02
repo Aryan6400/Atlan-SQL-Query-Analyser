@@ -78,13 +78,13 @@ const Editor=()=>{
                     </Select>
                 </FormControl>
                 <div>
-                    <Button>
+                    <Button title="Import">
                         <FileDownloadIcon/> <span>Import</span>
                     </Button>
-                    <Button>
+                    <Button title="Export">
                         <PublishIcon/> <span>Export</span>
                     </Button>
-                    <Button className="run-btn" onClick={runQuery}>
+                    <Button title="Run" className="run-btn" onClick={runQuery}>
                         <PlayArrowIcon/> <span>Run</span>
                     </Button>
                 </div>

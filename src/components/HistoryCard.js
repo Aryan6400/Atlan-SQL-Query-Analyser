@@ -31,10 +31,10 @@ const HistoryCard = ({ title, text, timestamp }) => {
                     <Typography className='history-box-title' variant="h6" sx={{ flexGrow: 1 }}>{title}</Typography>
                 </Box>
                 <div>
-                    <IconButton className='history-box-icon' onClick={transferHistory}>
+                    <IconButton title='Use' className='history-box-icon' onClick={transferHistory}>
                         <KeyboardDoubleArrowLeftIcon className={`${theme=="Dark"?"btn-dark":null}`} />
                     </IconButton>
-                    <IconButton className='history-box-icon' onClick={runHistory}>
+                    <IconButton title='Run' className='history-box-icon' onClick={runHistory}>
                         <PlayArrowIcon className='history-run' />
                     </IconButton>
                 </div>
