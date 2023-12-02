@@ -37,11 +37,11 @@ function App() {
       <div className={`App ${theme=="Dark"?"App-dark":null}`}>
         <div className={`left-panel ${theme=="Dark"?"App-dark":null}`}>
           <InputAndVisualise />
-          <Suspense fallback={<p>Loading...</p>}><ImagePopup /></Suspense>
+          <Suspense><ImagePopup /></Suspense>
         </div>
         <div className={`central-panel ${theme=="Dark"?"App-dark":null}`}>
           <Editor/>
-          <Suspense fallback={<p>Loading...</p>}><Output/></Suspense>
+          <Suspense><Output/></Suspense>
         </div>
         <div className={`right-panel ${theme=="Dark"?"App-dark":null}`}>
           <HistoryHeader />
