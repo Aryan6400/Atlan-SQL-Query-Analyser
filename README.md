@@ -22,7 +22,7 @@ Paraparse: To parse csv file into array
 react-chartjs-2: For generating desired graph
 react-modal: For generating graph modals
 
-**Deployed Link:** 
+**Deployed Link:** https://atlan-sql-query-analyser.vercel.app/
 
 **Page Load Time:**
 
@@ -37,7 +37,7 @@ Performance: 75/100, Accessibility: 96/100, Best Practices: 100/100
 
 **Optimisations:**
 
-Improved performance and load time by implementing lazy loading on the tables and graphs components.
+Improved performance and load time by implementing lazy loading on the tables and graphs components. Minifying and compressing JavaScript and CSS files also reduces their size. This not only speeds up the download but also benefits users with limited bandwidth.
 
 New metrics:
 
