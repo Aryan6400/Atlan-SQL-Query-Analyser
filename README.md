@@ -47,7 +47,8 @@ Best Practices: 100/100
 
 Improved performance and load time by implementing lazy loading on the tables and graphs components.
 
-New metrics:\n
+New metrics:
+
 According to Google Lighthouse: Performance: 98/100
 
 According to PageSpeed Insights: Performance: 81/100
