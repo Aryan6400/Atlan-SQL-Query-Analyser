@@ -42,16 +42,13 @@ Accessibility: 96/100
 
 Best Practices: 100/100
 
+
 **Optimisations:**
 
 Improved performance and load time by implementing lazy loading on the tables and graphs components.
 New metrics:
 
-According to Google Lighthouse:
+According to Google Lighthouse: Performance: 98/100
 
-new Performance: 98/100
-
-According to PageSpeed Insights:
-
-new Performance: 81/100
+According to PageSpeed Insights: Performance: 81/100
 
