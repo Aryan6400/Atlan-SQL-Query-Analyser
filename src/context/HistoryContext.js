@@ -1,11 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
 const HistoryContext = createContext();
-
 function HistoryProvider({children}){
     const [history, setHistory] = useState([]);
     const [transfer, setTransfer] = useState("");
-
     useEffect(()=>{
         // Checking if the user has any history data in local storage.
         const storedHistory=localStorage.getItem("history");
@@ -24,7 +21,6 @@ function HistoryProvider({children}){
             localStorage.setItem("history",JSON.stringify(history));
         }
     },[]);
-    
     return (
         <HistoryContext.Provider value={{history, setHistory, transfer, setTransfer}}>
             {children}
@@ -35,5 +31,4 @@ function HistoryProvider({children}){
 export const useHistory = () => {
     return useContext(HistoryContext);
 }
-
 export default HistoryProvider;
