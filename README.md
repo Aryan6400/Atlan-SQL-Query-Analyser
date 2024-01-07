@@ -22,7 +22,7 @@ Paraparse: To parse csv file into array
 react-chartjs-2: For generating desired graph
 react-modal: For generating graph modals
 
-**Deployed Link:** https://atlan-sql-query-analyser.vercel.app/
+**Deployed Link:** https://sql-query-analyser.vercel.app/
 
 **Page Load Time:**
 
