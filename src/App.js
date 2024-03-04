@@ -23,7 +23,7 @@ function App() {
     <>
       <header className={`header ${theme=="Dark"?"header-dark":null}`}>
         <span className={theme=="Dark"?"dark-font":null}>SQL query analyzer</span>
-        {/* {theme=="Dark" ? 
+        {theme=="Dark" ? 
           <IconButton title='Dark Mode' onClick={()=>setTheme("Light")}>
             <LightModeIcon className='theme-toggle-light' />
           </IconButton>
@@ -31,7 +31,7 @@ function App() {
           <IconButton title='Light Mode' onClick={()=>setTheme("Dark")}>
             <DarkModeIcon className='theme-toggle-dark' />
           </IconButton>
-        } */}
+        }
       </header>
       
       <div className={`App ${theme=="Dark"?"App-dark":null}`}>
